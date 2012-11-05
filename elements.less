@@ -8,6 +8,8 @@
       Portenart Emile-Victor,
       Ryan Faerman
 
+    Additional mixins by Kevin Jantzer
+
     More info at: http://lesselements.com
 -----------------------------------------------------*/
 
@@ -92,10 +94,10 @@
   -moz-transform:scale(@ratio);
   transform:scale(@ratio);
 }
-.transition(@duration:0.2s, @ease:ease-out) {
-  -webkit-transition: all @duration @ease;
-  -moz-transition: all @duration @ease;
-  transition: all @duration @ease;
+.transition(@duration:0.2s, @what:all, @ease:ease-out) {
+  -webkit-transition: @what @duration @ease;
+  -moz-transition: @what @duration @ease;
+  transition: @what @duration @ease;
 }
 .inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4) {
   -webkit-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
@@ -106,6 +108,11 @@
   -webkit-box-shadow: @arguments;
   -moz-box-shadow: @arguments;
   box-shadow: @arguments;
+}
+.box-shadow-two(@arguments,@arguments2) {
+  -webkit-box-shadow: @arguments, @arguments2;
+  -moz-box-shadow: @arguments, @arguments2;
+  box-shadow: @arguments, @arguments2;
 }
 .columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
   -moz-column-width: @colwidth;
@@ -133,4 +140,15 @@
   -o-transform: translate(@x, @y);
   -ms-transform: translate(@x, @y);
   transform: translate(@x, @y);
+}
+
+.transition-delay(@delay:500ms){	// KJ addition
+	-webkit-transition-delay: @delay;
+	-moz-transition-delay: @delay;
+	transition-delay: @delay;
+}
+.box-sizing( @val:border-box ){
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
